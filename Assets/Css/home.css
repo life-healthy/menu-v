@@ -1,0 +1,762 @@
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    overflow-x: hidden;
+    touch-action: pan-y;
+    scroll-snap-type: y proximity; /* hoặc x */
+    overflow-y: scroll;
+}
+
+h1, h2, h3 {
+    font-size: 2rem; /* Kiểm soát rõ ràng kích thước tiêu đề */
+  }
+
+.main-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+.top-section {
+    display: flex;
+    background-color: #f4ffdf;
+    position: relative;
+    width: 100%;
+    height: 35%;
+    position: relative;
+    overflow: hidden;
+}
+
+.bottom-section {
+    background-color: #467010;
+    position: relative;
+    width: 100%;
+    height: 65%;
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    position: absolute;
+    top: -40px;
+    left: 100px;
+    width: 120px;
+}
+
+.title-text {
+    position: relative;
+    top: 40px;
+    left: 150px;
+    color: #38664c;
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.main-dish {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 45%;
+    z-index: 5;
+}
+
+
+.menu-description {
+    max-width: 700px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.decoration-leaves1 {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 250px;
+    transform: rotate(270deg);
+    z-index: 5;
+}
+
+.decoration-leaves2 {
+    position: absolute;
+    right: -100px;
+    top: 150px;
+    width: 250px;
+    transform: rotate(270deg);
+    z-index: 6;
+}
+
+.decoration-leaves3 {
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    width: 250px;
+    transform: rotate(270deg);
+    z-index: 5;
+}
+
+.grid-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 200px 200px;
+    z-index: 0;
+}
+
+.circular-images-container {
+position: relative;
+width: 500px; /* Điều chỉnh kích thước container */
+height: 700px; /* Điều chỉnh kích thước container */
+overflow: hidden;
+}
+
+.circular-image {
+position: absolute;
+border-radius: 50%; /* Tạo hình tròn */
+overflow: hidden;
+}
+
+.image1 {
+width: 240px;
+height: 240px;
+top: 0px;
+left: 40px;
+z-index: 3;
+}
+
+.image2 {
+width: 250px;
+height: 250px;
+top: 200px;
+left: 270px;
+z-index: 2;
+}
+
+.image3 {
+width: 230px;
+height: 230px;
+top: 400px;
+left: 40px;
+z-index: 3;
+}
+
+.circular-image img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Đảm bảo hình ảnh lấp đầy không bị méo */
+}
+
+/* Các phần tử trang trí */
+.decoration {
+position: absolute;
+background-size: contain;
+background-repeat: no-repeat;
+}
+
+.leaf1 {
+width: 80px;
+height: 80px;
+background-image: url('Assets/Images/Home/left_5.png');
+top: 200px;
+left: 20px;
+z-index: 1;
+}
+
+.leaf2 {
+width: 100px;
+height: 100px;
+background-image: url('Assets/Images/Home/left_6.png');
+bottom: 30px;
+right: 20px;
+z-index: 1;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+/* Medium devices (tablets, iPads, up to 1024px) */
+@media screen and (max-width: 1024px) {
+    .main-container {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .top-section {
+        height: 30vh;
+    }
+    
+    .bottom-section {
+        height: 70vh;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .title-text {
+        left: 100px;
+        font-size: 20px;
+    }
+    
+    .main-dish {
+        width: 35%;
+        right: 5%;
+        top: -30px;
+    }
+    
+    .side-dishes {
+        position: relative !important;
+        left: 0 !important;
+        transform: scale(0.8);
+        margin-top: 20px;
+    }
+    
+    .circular-images-container {
+        width: 360px;
+        height: 500px;
+        margin: 0 auto;
+    }
+    
+    .image1 {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .image2 {
+        width: 190px;
+        height: 190px;
+        top: 140px;
+        left: 190px;
+    }
+    
+    .image3 {
+        width: 170px;
+        height: 170px;
+        top: 300px;
+    }
+    
+    .menu-description {
+        max-width: 450px;
+        font-size: 24px;
+        margin-top: -60px;
+    }
+    
+    .decoration-leaves1, .decoration-leaves2, .decoration-leaves3 {
+        width: 200px;
+    }
+}
+
+/* Small devices (iPad Mini, smaller tablets, up to 768px) */
+@media screen and (max-width: 768px) {
+    .top-section {
+        height: 25vh;
+    }
+    
+    .bottom-section {
+        height: 75vh;
+    }
+    
+    .title-text {
+        top: 20px;
+        left: 50px;
+        font-size: 18px;
+    }
+    
+    .main-dish {
+        width: 40%;
+        right: 0;
+        top: -10px;
+    }
+    
+    .side-dishes {
+        transform: scale(0.7);
+    }
+    
+    .circular-images-container {
+        width: 300px;
+        height: 420px;
+    }
+    
+    .image1 {
+        width: 160px;
+        height: 160px;
+        left: 20px;
+    }
+    
+    .image2 {
+        width: 170px;
+        height: 170px;
+        top: 120px;
+        left: 150px;
+    }
+    
+    .image3 {
+        width: 150px;
+        height: 150px;
+        top: 260px;
+        left: 20px;
+    }
+    
+    .menu-description {
+        max-width: 400px;
+        font-size: 22px;
+        margin-top: -40px;
+    }
+    
+    .decoration-leaves1, .decoration-leaves2, .decoration-leaves3 {
+        width: 150px;
+    }
+    
+    div[style*="position: absolute; top: 50%; left: 50%; margin-top: 20px;"] {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        margin-top: 10px !important;
+        text-align: center;
+    }
+    
+    div[style*="position: absolute; top: 50%; left: 50%; margin-top: 20px;"] p {
+        font-size: 18px !important;
+    }
+}
+
+/* Extra small devices (phones, up to 576px) */
+@media screen and (max-width: 576px) {
+    .main-container {
+        scroll-snap-align: none;
+    }
+    
+    .top-section {
+        height: 25vh;
+    }
+    
+    .bottom-section {
+        height: auto;
+        min-height: 75vh;
+        padding: 15px;
+    }
+    
+    .title-text {
+        top: 10px;
+        left: 20px;
+        font-size: 16px;
+    }
+    
+    div.d-flex.justify-content-center.w-100.align-items-center {
+        transform: translateX(0) !important;
+    }
+    
+    .main-dish {
+        width: 45%;
+        right: -10%;
+        top: 0;
+    }
+    
+    .circular-images-container {
+        width: 250px;
+        height: 350px;
+        margin: 0 auto;
+    }
+    
+    .side-dishes {
+        transform: scale(0.6);
+        margin-top: -20px;
+    }
+    
+    .image1 {
+        width: 130px;
+        height: 130px;
+        left: 15px;
+    }
+    
+    .image2 {
+        width: 140px;
+        height: 140px;
+        top: 100px;
+        left: 120px;
+    }
+    
+    .image3 {
+        width: 120px;
+        height: 120px;
+        top: 220px;
+        left: 15px;
+    }
+    
+    .menu-description {
+        max-width: 280px;
+        font-size: 18px;
+        margin-top: -20px;
+    }
+    
+    .text-effect[style*="transform: translateY(-50%)"] {
+        transform: translateY(0) !important;
+    }
+    
+    .decoration-leaves1, .decoration-leaves2, .decoration-leaves3 {
+        width: 100px;
+        right: -50px;
+    }
+    
+    div[style*="position: absolute; top: 50%; left: 50%; margin-top: 20px;"] {
+        margin-top: 20px !important;
+        width: 100%;
+    }
+    
+    div[style*="position: absolute; top: 50%; left: 50%; margin-top: 20px;"] p {
+        font-size: 16px !important;
+        margin-bottom: 10px;
+    }
+    
+    .leaf1, .leaf2 {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Very small devices (small phones, up to 375px) */
+@media screen and (max-width: 375px) {
+    .top-section {
+        height: 20vh;
+    }
+    
+    .title-text {
+        font-size: 14px;
+    }
+    
+    img[style*="transform: translate(-20%,-50%)"] {
+        transform: translate(-20%,-40%) scale(0.8) !important;
+    }
+    
+    .text-effect[style*="transform: translateY(40%)"] {
+        transform: translateY(20%) !important;
+    }
+    
+    .main-dish {
+        width: 50%;
+        right: -15%;
+    }
+    
+    .side-dishes {
+        transform: scale(0.5);
+        margin-top: -40px;
+    }
+    
+    .circular-images-container {
+        width: 220px;
+        height: 300px;
+    }
+    
+    .menu-description {
+        max-width: 220px;
+        font-size: 16px;
+    }
+    
+    div[style*="position: absolute; top: 50%; left: 50%; margin-top: 20px;"] p {
+        font-size: 14px !important;
+    }
+
+    .responsive-mobile, .circular-images-container {
+        display: none;
+    }
+}
+
+/* Extra small devices (Galaxy Fold, etc., up to 320px) */
+@media screen and (max-width: 320px) {
+    .top-section {
+        height: 18vh;
+    }
+    
+    .title-text {
+        font-size: 12px;
+        left: 10px;
+    }
+    
+    img[style*="transform: translate(-20%,-50%)"] {
+        transform: translate(-20%,-30%) scale(0.7) !important;
+    }
+    
+    .main-dish {
+        width: 55%;
+        right: -20%;
+        top: 10px;
+    }
+    
+    .side-dishes {
+        transform: scale(0.45);
+        margin-top: -50px;
+    }
+    
+    .menu-description {
+        max-width: 200px;
+        font-size: 14px;
+    }
+    
+    div[style*="position: absolute; top: 50%; left: 50%; margin-top: 20px;"] p {
+        font-size: 12px !important;
+    }
+    
+    .decoration-leaves1, .decoration-leaves2, .decoration-leaves3 {
+        width: 80px;
+    }
+}
+
+.click-me:hover div {
+    border-color: #ff6b6b !important;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+.click-me:hover img {
+    transform: scale(1.05);
+}
+
+
+.text-effect {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 
+        /* Đường viền */
+        -3px -3px 0 #38664c,
+        3px -3px 0 #38664c,
+        -3px 3px 0 #38664c,
+        3px 3px 0 #38664c,
+        /* Đổ bóng */
+        4px 4px 0 rgba(23, 105, 11, 0.999),
+        5px 5px 0 rgba(36, 184, 2, 0.855);
+    /* Hiệu ứng 3D */
+    transform: perspective(500px) rotateX(5deg);
+    letter-spacing: 2px;
+}
+
+.menu-container {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-header {
+    background-color: #527b28;
+    color: white;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.menu-title {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 10rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.menu-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-top: -5px;
+    font-weight: 400;
+}
+
+.featured-dish {
+    background-color: #527b28;
+    padding: 20px 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #476725;
+    position: relative;
+}
+
+.dish-title {
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    display: inline-block;
+}
+
+.dish-decoration {
+    position: absolute;
+    font-size: 22px;
+    color: #a5e05a;
+}
+
+.dish-decoration.left {
+    left: -30px;
+}
+
+.dish-decoration.right {
+    right: -30px;
+}
+
+.dish-description {
+    max-width: 700px;
+    line-height: 1.6;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.dish-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    margin-left: auto;
+}
+
+.calories-badge {
+    position: absolute;
+    background-color: #6e3902;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 0 8px 0 8px;
+    font-weight: 500;
+    bottom: 35%;
+    right: 50%;
+    z-index: 10;
+    transform: translateY(100%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-items {
+    padding: 40px;
+    background-color: #f8fbf5;
+    position: relative;
+    flex: 1;
+}
+
+.menu-item {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.menu-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-image-container {
+    position: relative;
+}
+
+.item-image {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #e9f1e0;
+}
+
+.item-calories {
+    position: absolute;
+    background-color: #6e3902;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.item-content {
+    padding: 20px 40px;
+    flex: 1;
+}
+
+.item-title {
+    font-size: 24px;
+    color: #527b28;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    display: inline-block;
+}
+
+.item-description {
+    color: #333;
+    line-height: 1.6;
+}
+
+.decoration-leaf {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0.2;
+}
+
+.leaf-1 {
+    top: 20px;
+    left: 20px;
+}
+
+.leaf-2 {
+    bottom: 20px;
+    right: 20px;
+}
+
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 200px 200px;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .menu-title {
+        font-size: 3rem;
+    }
+    
+    .featured-dish {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .dish-image {
+        margin: 20px auto 0;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .menu-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .item-content {
+        padding: 20px 0;
+    }
+    
+    .item-image {
+        width: 180px;
+        height: 180px;
+    }
+}
