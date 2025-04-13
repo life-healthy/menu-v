@@ -6,7 +6,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 8px;
     overflow-x: hidden;
     touch-action: pan-y;
     scroll-snap-type: y proximity; /* hoặc x */
